@@ -18,14 +18,14 @@ export class Source extends EM {
         this.mesh = new THREE.Mesh(new THREE.BoxGeometry(1, 0.3, 1), new THREE.MeshLambertMaterial({ color: 0x0f00f0 }));
         this.engine.scene.add(this.mesh);
 
-        this.dropGeometry = new THREE.BoxGeometry(0.1, 0.1, 0.1)
+        this.dropGeometry = new THREE.BoxGeometry(0.017, 0.1, 0.017)
         this.dropMaterial = new THREE.MeshBasicMaterial({
-            color: 0xff0000
+            color: 0x1976D2
         })
 
         setInterval(() => {
             this.spawnNewDrop();
-        }, 10)
+        }, 8)
 
         this.engine.on("update", () => {
             this.update()
@@ -46,6 +46,6 @@ export class Source extends EM {
         if (intersects[0]) {
             this.mesh.position.copy(intersects[0].point)
             this.spawnPos.copy(intersects[0].point)
-        } 
+        }
     }
 }
